@@ -43,10 +43,11 @@ class ViewController: UIViewController {
     
     @IBAction func addPressed(_ sender: UIButton) {
         
-        let cylinder = SCNNode(geometry: SCNCylinder(radius: 0.1, height: 0.15))
-        cylinder.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
-        cylinder.position = SCNVector3(0, 0, -0.3)
-        cylinder.eulerAngles = SCNVector3(0, 0, 90.degreesToRadians)
+        let node = SCNNode()
+        node.geometry = SCNPyramid(width: 0.1, height: 0.1, length: 0.1)
+        node.geometry?.firstMaterial?.specular.contents = UIColor.orange
+        node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+        node.position = SCNVector3(0.2, 0.3, -0.2)
         
         self.sceneView.scene.rootNode.addChildNode(cylinder)
         

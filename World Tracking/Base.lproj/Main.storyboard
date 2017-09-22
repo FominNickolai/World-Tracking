@@ -20,11 +20,25 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaj-Aq-HEQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlp-RM-Ehp">
+                                <rect key="frame" x="20" y="577" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="36g-az-ejS"/>
+                                    <constraint firstAttribute="height" constant="70" id="idh-Dp-Bhm"/>
+                                </constraints>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hzG-vk-Fhw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vaj-Aq-HEQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6uN-bJ-akb"/>
                             <constraint firstItem="vaj-Aq-HEQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EBe-ab-pOh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jlp-RM-Ehp" secondAttribute="bottom" constant="20" id="FJ0-bt-Vbb"/>
+                            <constraint firstItem="jlp-RM-Ehp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PF7-ns-0EM"/>
                             <constraint firstItem="vaj-Aq-HEQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="TGB-d1-mkK"/>
                             <constraint firstItem="vaj-Aq-HEQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oYe-Ql-jzP"/>
                         </constraints>

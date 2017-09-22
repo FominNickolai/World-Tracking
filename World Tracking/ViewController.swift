@@ -44,7 +44,41 @@ class ViewController: UIViewController {
     @IBAction func addPressed(_ sender: UIButton) {
         
         let node = SCNNode()
-        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.03)
+//        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.03)
+//        node.geometry?.firstMaterial?.specular.contents = UIColor.orange
+//        node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+        //node.geometry = SCNCapsule(capRadius: 0.1, height: 0.3)
+        //node.geometry = SCNCone(topRadius: 0, bottomRadius: 0.1, height: 0.3)
+        //node.geometry = SCNCylinder(radius: 0.2, height: 0.1)
+        //node.geometry = SCNSphere(radius: 0.1)
+        
+//        let path = UIBezierPath()
+//        path.move(to: CGPoint(x: 0, y: 0))
+//        path.addLine(to: CGPoint(x: 0, y: 0.2))
+//        path.addLine(to: CGPoint(x: 0.2, y: 0.3))
+//        path.addLine(to: CGPoint(x: 0.4, y: 0.2))
+//        path.addLine(to: CGPoint(x: 0.4, y: 0))
+        
+        //// Color Declarations
+        
+        //// Star Drawing
+        let starPath = UIBezierPath()
+        starPath.move(to: CGPoint(x: 0.5, y: 0))
+        starPath.addLine(to: CGPoint(x: 0.69, y: 0.28))
+        starPath.addLine(to: CGPoint(x: 1, y: 0.38))
+        starPath.addLine(to: CGPoint(x: 0.8, y: 0.66))
+        starPath.addLine(to: CGPoint(x: 0.81, y: 1))
+        starPath.addLine(to: CGPoint(x: 0.5, y: 0.88))
+        starPath.addLine(to: CGPoint(x: 0.19, y: 1))
+        starPath.addLine(to: CGPoint(x: 0.2, y: 0.66))
+        starPath.addLine(to: CGPoint(x: 0, y: 0.38))
+        starPath.addLine(to: CGPoint(x: 0.31, y: 0.28))
+        starPath.addLine(to: CGPoint(x: 0.5, y: 0))
+        starPath.close()
+        
+        let shape = SCNShape(path: starPath, extrusionDepth: 0.1)
+        
+        node.geometry = shape
         node.geometry?.firstMaterial?.specular.contents = UIColor.orange
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
         let x = randomNumbers(fristNum: -0.3, secondNum: 0.3)

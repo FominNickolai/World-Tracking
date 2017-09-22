@@ -43,32 +43,12 @@ class ViewController: UIViewController {
     
     @IBAction func addPressed(_ sender: UIButton) {
         
-        let node = SCNNode()
-        node.geometry = SCNPyramid(width: 0.1, height: 0.1, length: 0.1)
-        node.geometry?.firstMaterial?.specular.contents = UIColor.orange
-        node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
-        node.position = SCNVector3(0.2, 0.3, -0.2)
+        let cylinder = SCNNode(geometry: SCNCylinder(radius: 0.1, height: 0.3))
+        cylinder.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+        cylinder.position = SCNVector3(0, 0, -0.3)
+        cylinder.eulerAngles = SCNVector3(0, 0, 45.degreesToRadians)
         
-        
-        let boxNode = SCNNode(geometry: SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0))
-        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-        let minBox = boxNode.boundingBox.min
-        let maxBox = boxNode.boundingBox.max
-        let h = CGFloat(maxBox.y - minBox.y)
-        let w = CGFloat(maxBox.x - minBox.x)
-        boxNode.position = SCNVector3(0, -h / 2, 0)
-        
-        let doorNode = SCNNode(geometry: SCNPlane(width: 0.03, height: 0.06))
-        let minDoor = doorNode.boundingBox.min
-        let maxDoor = doorNode.boundingBox.max
-        let doorH = CGFloat(maxDoor.y - minDoor.y)
-        let doorW = CGFloat(maxDoor.x - minDoor.x)
-        doorNode.geometry?.firstMaterial?.diffuse.contents = UIColor.brown
-        doorNode.position = SCNVector3(-((w / 2) - (doorW / 2)), -((h / 2) - (doorH / 2)), w / 2 + 0.0005)
-        
-        self.sceneView.scene.rootNode.addChildNode(node)
-        node.addChildNode(boxNode)
-        boxNode.addChildNode(doorNode)
+        self.sceneView.scene.rootNode.addChildNode(cylinder)
         
         
     }
@@ -80,6 +60,11 @@ class ViewController: UIViewController {
     }
 }
 
+extension Int {
+    var degreesToRadians: Double {
+        return Double(self) * .pi / 180
+    }
+}
 
 
 
